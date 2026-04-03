@@ -1,17 +1,16 @@
 package org.example;
 
 public class HelloApp {
+
     public static void main(String[] args) {
 
-        // Default value
-        String name = "World";
-
-        // If argument is provided, use it
+        String message;
         if (args.length > 0) {
-            name = args[0];
+            String names = String.join(", ", args);
+            message = "Hello, " + names + "!";
+        } else {
+            message = "Hello, World!";
         }
-
-        // Print result
-        System.out.println("Hello, " + name + "!");
+        System.out.println(message);
     }
 }
