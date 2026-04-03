@@ -1,26 +1,28 @@
 package org.example;
 
 public class HelloApp {
-
     public static void main(String[] args) {
 
-        StringBuilder sb = new StringBuilder();
-        if (args.length == 0) {
-            sb.append("Hello, World!");
-        } else {
-            sb.append("Hello, ");
+        String output;
 
-            boolean first = true;
+        // If no arguments → default
+        if (args.length == 0) {
+            output = "Hello, World!";
+        } else {
+            StringBuilder nameBuilder = new StringBuilder();
+
+            // Append all names with ", "
             for (String name : args) {
-                if (!first) {
-                    sb.append(", ");
-                }
-                sb.append(name);
-                first = false;
+                nameBuilder.append(name).append(", ");
             }
 
-            sb.append("!");
+            // Remove trailing ", "
+            String names = nameBuilder.substring(0, nameBuilder.length() - 2);
+
+            output = "Hello, " + names + "!";
         }
-        System.out.println(sb.toString());
+
+        // Print result
+        System.out.println(output);
     }
 }
